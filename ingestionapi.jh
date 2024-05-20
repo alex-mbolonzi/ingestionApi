@@ -117,10 +117,20 @@ entity RequestStatusDetails(request_status_details) {
     modifiedDate Instant
 }
 
+enum StatusName {
+	DRAFT,
+    TRIAGE PENDING APPROVAL,
+    APPROVED,
+    REJECTED,
+    INGESTION INPROGRESS,
+    INGESTION COMPLETED,
+    INGESTION FAILURE
+}
+
 entity Status(status) {
     statusId Long required,
     statusCode String required unique maxlength(255),
-    statusName String required maxlength(255)
+    statusName StatusName required
 }
 
 entity TechnicalDetails(technical_details) {
