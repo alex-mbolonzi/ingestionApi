@@ -1,0 +1,223 @@
+
+application {
+  config {
+    baseName ingestionApi
+    applicationType monolith
+    packageName dev.ingestion
+    authenticationType jwt
+    prodDatabaseType postgres
+  }
+  entities *
+}
+
+entity ApplicationReferenceTable(application_reference_table) {
+    referenceId Long required,
+    referenceData String required maxlength(255),
+    referenceDataType String required maxlength(255),
+    createdBy String required maxlength(255),
+    createdDate Instant required,
+    modifiedBy String maxlength(255),
+    modifiedDate Instant,
+    referenceOrder Long required,
+    referenceGroupType String maxlength(255)
+}
+
+entity DatasetDataCategory(dataset_data_category) {
+    datasetDataCategoryId Long required,
+    dataCategoryRef String required maxlength(255)
+}
+
+entity DatasetDetails(dataset_details) {
+    datasetId Long required,
+    datasetName String maxlength(255),
+    datasetOriginSource String maxlength(255),
+    currentDataLocationRef String maxlength(255),
+    meteorSpaceDominoUsageFlag Boolean,
+    ihdFlag Boolean,
+    datasetRequiredForRef String maxlength(255),
+    estimatedDataVolumeRef String maxlength(255),
+    analysisInitDt LocalDate,
+    analysisEndDt LocalDate,
+    dtaContractCompleteFlag Boolean,
+    dtaExpectedCompletionDate LocalDate,
+    datasetTypeRef String maxlength(255),
+    informationClassificationTypeRef String maxlength(255),
+    piiTypeRef String maxlength(255),
+    retentionRules String maxlength(255),
+    retentionRulesContractDate LocalDate,
+    contractPartner String maxlength(255),
+    createdBy String required maxlength(255),
+    createdDate Instant required,
+    modifiedBy String maxlength(255),
+    modifiedDate Instant
+}
+
+entity DatasetIndication(dataset_indication) {
+    datasetIndicationId Long required,
+    indication String required maxlength(255)
+}
+
+entity DatasetRoleDetails(dataset_role_details) {
+    datasetRoleDetailsId Long required,
+    role String required maxlength(45),
+    email String required maxlength(255),
+    mudid String required maxlength(255),
+    name String required maxlength(255)
+}
+
+entity DatasetStudy(dataset_study) {
+    datasetStudyId Long required,
+    studyId String required maxlength(255)
+}
+
+entity DatasetTechAndAssay(dataset_tech_and_assay) {
+    datasetTechAndAssayId Long required,
+    techniqueAndAssay String required maxlength(255)
+}
+
+entity DatasetTherapy(dataset_therapy) {
+    datasetTheraphyId Long required,
+    therapy String required maxlength(255)
+}
+
+entity DatasetUserUsageRestriction(dataset_user_usage_restriction) {
+    usageUserRestrictionId Long required,
+    restrictionRef String required maxlength(255),
+    restrictionTypeRef String required maxlength(255),
+    reasonForOther String maxlength(255),
+    createdBy String required maxlength(255),
+    createdDate Instant required,
+    modifiedBy String maxlength(255),
+    modifiedDate Instant
+}
+
+entity EmailTemplate(email_template) {
+    templateId Long required,
+    templateCode String required unique maxlength(255),
+    subject String required maxlength(255),
+    body String required maxlength(1024)
+}
+
+entity IngestionRequestDetails(ingestion_request_details) {
+    ingestionRequestId Long required,
+    requesterName String required maxlength(255),
+    requesterMudid String required maxlength(255),
+    requesterEmail String required maxlength(255),
+    requestRationaleReason String maxlength(255),
+    requestedByName String required maxlength(255),
+    requestedByMudid String required maxlength(255),
+    requestedByEmail String required maxlength(255),
+    createdBy String required maxlength(255),
+    createdDate Instant required,
+    modifiedBy String maxlength(255),
+    modifiedDate Instant,
+    modifiedReason String maxlength(255)
+}
+
+entity RequestStatusDetails(request_status_details) {
+    requestStatusId Long required,
+    decisionByName String required maxlength(255),
+    decisionByMudid String required maxlength(255),
+    decisionByEmail String required maxlength(255),
+    decisionDate Instant required,
+    decisionComments String maxlength(255),
+    rejectionReason String maxlength(255),
+    activeFlag Boolean required,
+    createdBy String required maxlength(255),
+    createdDate Instant required,
+    modifiedBy String maxlength(255),
+    modifiedDate Instant
+}
+
+entity Status(status) {
+    statusId Long required,
+    statusCode String required unique maxlength(255),
+    statusName String required maxlength(255)
+}
+
+entity TechnicalDetails(technical_details) {
+    technicalRequestId Long required,
+    dataLocationPath String maxlength(1024),
+    dataRefreshFrequency String maxlength(255),
+    targetIngestionStartDate LocalDate,
+    targetIngestionEndDate LocalDate,
+    targetPath String maxlength(1024),
+    datasetTypeIngestionRef String maxlength(255),
+    guestUsersEmail String maxlength(255),
+    whitelistIpAddresses String maxlength(255),
+    externalStagingContainerName String maxlength(255),
+    externalDataSourceLocation String maxlength(255),
+    gskAccessSourceLocationRef String maxlength(255),
+    externalSourceSecretKeyName String maxlength(255),
+    domainRequestId String maxlength(255),
+    existingDataLocationIdentified String maxlength(1024),
+    createdBy String required maxlength(255),
+    createdDate Instant required,
+    modifiedBy String maxlength(255),
+    modifiedDate Instant
+}
+
+entity ValidationNotes(validation_notes) {
+    notesId Long required,
+    notes String required maxlength(1024),
+    createdBy String required maxlength(255),
+    createdDate Instant required,
+    modifiedBy String maxlength(255),
+    modifiedDate Instant
+}
+
+// Relations
+relationship ManyToOne {
+    DatasetDataCategory{dataset required} to DatasetDetails{datasetDataCategory}
+}
+
+relationship ManyToOne {
+    DatasetDetails{ingestionRequest required} to IngestionRequestDetails{datasetDetails}
+}
+
+relationship ManyToOne {
+    DatasetIndication{dataset required} to DatasetDetails{datasetIndication}
+}
+
+relationship ManyToOne {
+    DatasetRoleDetails{dataset required} to DatasetDetails{datasetRoleDetails}
+}
+
+relationship ManyToOne {
+    DatasetStudy{dataset required} to DatasetDetails{datasetStudy}
+}
+
+relationship ManyToOne {
+    DatasetTechAndAssay{dataset required} to DatasetDetails{datasetTechAndAssay}
+}
+
+relationship ManyToOne {
+    DatasetTherapy{dataset required} to DatasetDetails{datasetTherapy}
+}
+
+relationship ManyToOne {
+    DatasetUserUsageRestriction{dataset required} to DatasetDetails{datasetUserUsageRestriction}
+}
+
+relationship ManyToOne {
+    RequestStatusDetails{ingestionRequest required} to IngestionRequestDetails{requestStatusDetails}
+}
+
+relationship ManyToOne {
+    RequestStatusDetails{statusIdRef(status_code) required} to Status{requestStatusDetails}
+}
+
+relationship ManyToOne {
+    TechnicalDetails{ingestionRequest required} to IngestionRequestDetails{technicalDetails}
+}
+
+relationship ManyToOne {
+    ValidationNotes{ingestionRequest required} to IngestionRequestDetails{validationNotes}
+}
+
+// Options
+service * with serviceClass
+
+dto * with mapstruct
+
+
