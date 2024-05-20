@@ -168,51 +168,51 @@ entity ValidationNotes(validation_notes) {
 
 // Relations
 relationship ManyToOne {
-    DatasetDataCategory{dataset required} to DatasetDetails{datasetDataCategory}
+    DatasetDataCategory{datasetId required} to DatasetDetails{datasetDataCategory}
+}
+
+relationship OneToOne {
+    DatasetDetails{ingestionRequestId required} to IngestionRequestDetails{datasetDetails}
 }
 
 relationship ManyToOne {
-    DatasetDetails{ingestionRequest required} to IngestionRequestDetails{datasetDetails}
+    DatasetIndication{datasetId required} to DatasetDetails{datasetIndication}
 }
 
 relationship ManyToOne {
-    DatasetIndication{dataset required} to DatasetDetails{datasetIndication}
+    DatasetRoleDetails{datasetId required} to DatasetDetails{datasetRoleDetails}
 }
 
 relationship ManyToOne {
-    DatasetRoleDetails{dataset required} to DatasetDetails{datasetRoleDetails}
+    DatasetStudy{datasetId required} to DatasetDetails{datasetStudy}
 }
 
 relationship ManyToOne {
-    DatasetStudy{dataset required} to DatasetDetails{datasetStudy}
+    DatasetTechAndAssay{datasetId required} to DatasetDetails{datasetTechAndAssay}
 }
 
 relationship ManyToOne {
-    DatasetTechAndAssay{dataset required} to DatasetDetails{datasetTechAndAssay}
+    DatasetTherapy{datasetId required} to DatasetDetails{datasetTherapy}
 }
 
 relationship ManyToOne {
-    DatasetTherapy{dataset required} to DatasetDetails{datasetTherapy}
+    DatasetUserUsageRestriction{datasetId required} to DatasetDetails{datasetUserUsageRestriction}
 }
 
 relationship ManyToOne {
-    DatasetUserUsageRestriction{dataset required} to DatasetDetails{datasetUserUsageRestriction}
+    RequestStatusDetails{ingestionRequestId required} to IngestionRequestDetails{requestStatusDetails}
 }
 
 relationship ManyToOne {
-    RequestStatusDetails{ingestionRequest required} to IngestionRequestDetails{requestStatusDetails}
+    RequestStatusDetails{statusId(statusIdRef) required} to Status{requestStatusDetails}
+}
+
+relationship OneToOne {
+    TechnicalDetails{ingestionRequestId required} to IngestionRequestDetails{technicalDetails}
 }
 
 relationship ManyToOne {
-    RequestStatusDetails{statusIdRef(status_code) required} to Status{requestStatusDetails}
-}
-
-relationship ManyToOne {
-    TechnicalDetails{ingestionRequest required} to IngestionRequestDetails{technicalDetails}
-}
-
-relationship ManyToOne {
-    ValidationNotes{ingestionRequest required} to IngestionRequestDetails{validationNotes}
+    ValidationNotes{ingestionRequestId required} to IngestionRequestDetails{validationNotes}
 }
 
 // Options
