@@ -1,15 +1,3 @@
-
-application {
-  config {
-    baseName ingestionApi
-    applicationType monolith
-    packageName dev.ingestion
-    authenticationType jwt
-    prodDatabaseType postgresql
-  }
-  entities *
-}
-
 entity ApplicationReferenceTable(application_reference_table) {
     referenceId Long required,
     referenceData String required maxlength(255),
@@ -216,8 +204,8 @@ relationship ManyToOne {
 }
 
 // Options
-service * with serviceClass
+service all with serviceClass
 
-dto * with mapstruct
+dto all with mapstruct
 
 
