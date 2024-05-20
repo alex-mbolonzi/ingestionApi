@@ -119,12 +119,12 @@ entity RequestStatusDetails(request_status_details) {
 
 enum StatusName {
 	DRAFT,
-    TRIAGE PENDING APPROVAL,
+    TRIAGE_PENDING_APPROVAL,
     APPROVED,
     REJECTED,
-    INGESTION INPROGRESS,
-    INGESTION COMPLETED,
-    INGESTION FAILURE
+    INGESTION_INPROGRESS,
+    INGESTION_COMPLETED,
+    INGESTION_FAILURE
 }
 
 entity Status(status) {
