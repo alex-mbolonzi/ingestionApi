@@ -1,0 +1,366 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-ingestion-request-details-heading" jhiTranslate="ingestionApiApp.ingestionRequestDetails.home.createOrEditLabel">
+        Create or edit a Ingestion Request Details
+      </h2>
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!editForm.get('id').value">
+          <label for="id" jhiTranslate="global.field.id">ID</label>
+          <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.ingestionRequestDetails.ingestionRequestId"
+            for="field_ingestionRequestId"
+            >Ingestion Request Id</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="ingestionRequestId"
+            id="field_ingestionRequestId"
+            formControlName="ingestionRequestId"
+          />
+          <div
+            *ngIf="
+              editForm.get('ingestionRequestId').invalid &&
+              (editForm.get('ingestionRequestId').dirty || editForm.get('ingestionRequestId').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('ingestionRequestId').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('ingestionRequestId')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.ingestionRequestDetails.requesterName" for="field_requesterName"
+            >Requester Name</label
+          >
+          <input type="text" class="form-control" name="requesterName" id="field_requesterName" formControlName="requesterName" />
+          <div
+            *ngIf="editForm.get('requesterName').invalid && (editForm.get('requesterName').dirty || editForm.get('requesterName').touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('requesterName').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('requesterName').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.ingestionRequestDetails.requesterMudid" for="field_requesterMudid"
+            >Requester Mudid</label
+          >
+          <input type="text" class="form-control" name="requesterMudid" id="field_requesterMudid" formControlName="requesterMudid" />
+          <div
+            *ngIf="
+              editForm.get('requesterMudid').invalid && (editForm.get('requesterMudid').dirty || editForm.get('requesterMudid').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('requesterMudid').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('requesterMudid').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.ingestionRequestDetails.requesterEmail" for="field_requesterEmail"
+            >Requester Email</label
+          >
+          <input type="text" class="form-control" name="requesterEmail" id="field_requesterEmail" formControlName="requesterEmail" />
+          <div
+            *ngIf="
+              editForm.get('requesterEmail').invalid && (editForm.get('requesterEmail').dirty || editForm.get('requesterEmail').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('requesterEmail').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('requesterEmail').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.ingestionRequestDetails.requestRationaleReason"
+            for="field_requestRationaleReason"
+            >Request Rationale Reason</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="requestRationaleReason"
+            id="field_requestRationaleReason"
+            formControlName="requestRationaleReason"
+          />
+          <div
+            *ngIf="
+              editForm.get('requestRationaleReason').invalid &&
+              (editForm.get('requestRationaleReason').dirty || editForm.get('requestRationaleReason').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('requestRationaleReason').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.ingestionRequestDetails.requestedByName"
+            for="field_requestedByName"
+            >Requested By Name</label
+          >
+          <input type="text" class="form-control" name="requestedByName" id="field_requestedByName" formControlName="requestedByName" />
+          <div
+            *ngIf="
+              editForm.get('requestedByName').invalid && (editForm.get('requestedByName').dirty || editForm.get('requestedByName').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('requestedByName').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('requestedByName').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.ingestionRequestDetails.requestedByMudid"
+            for="field_requestedByMudid"
+            >Requested By Mudid</label
+          >
+          <input type="text" class="form-control" name="requestedByMudid" id="field_requestedByMudid" formControlName="requestedByMudid" />
+          <div
+            *ngIf="
+              editForm.get('requestedByMudid').invalid &&
+              (editForm.get('requestedByMudid').dirty || editForm.get('requestedByMudid').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('requestedByMudid').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('requestedByMudid').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.ingestionRequestDetails.requestedByEmail"
+            for="field_requestedByEmail"
+            >Requested By Email</label
+          >
+          <input type="text" class="form-control" name="requestedByEmail" id="field_requestedByEmail" formControlName="requestedByEmail" />
+          <div
+            *ngIf="
+              editForm.get('requestedByEmail').invalid &&
+              (editForm.get('requestedByEmail').dirty || editForm.get('requestedByEmail').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('requestedByEmail').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('requestedByEmail').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.ingestionRequestDetails.createdBy" for="field_createdBy"
+            >Created By</label
+          >
+          <input type="text" class="form-control" name="createdBy" id="field_createdBy" formControlName="createdBy" />
+          <div *ngIf="editForm.get('createdBy').invalid && (editForm.get('createdBy').dirty || editForm.get('createdBy').touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('createdBy').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('createdBy').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.ingestionRequestDetails.createdDate" for="field_createdDate"
+            >Created Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_createdDate"
+              type="datetime-local"
+              class="form-control"
+              name="createdDate"
+              formControlName="createdDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('createdDate').invalid && (editForm.get('createdDate').dirty || editForm.get('createdDate').touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('createdDate').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('createdDate').errors?.ZonedDateTimelocal"
+              jhiTranslate="entity.validation.ZonedDateTimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.ingestionRequestDetails.modifiedBy" for="field_modifiedBy"
+            >Modified By</label
+          >
+          <input type="text" class="form-control" name="modifiedBy" id="field_modifiedBy" formControlName="modifiedBy" />
+          <div *ngIf="editForm.get('modifiedBy').invalid && (editForm.get('modifiedBy').dirty || editForm.get('modifiedBy').touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('modifiedBy').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.ingestionRequestDetails.modifiedDate" for="field_modifiedDate"
+            >Modified Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_modifiedDate"
+              type="datetime-local"
+              class="form-control"
+              name="modifiedDate"
+              formControlName="modifiedDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.ingestionRequestDetails.modifiedReason" for="field_modifiedReason"
+            >Modified Reason</label
+          >
+          <input type="text" class="form-control" name="modifiedReason" id="field_modifiedReason" formControlName="modifiedReason" />
+          <div
+            *ngIf="
+              editForm.get('modifiedReason').invalid && (editForm.get('modifiedReason').dirty || editForm.get('modifiedReason').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('modifiedReason').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+          <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

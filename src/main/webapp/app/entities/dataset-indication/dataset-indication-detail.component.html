@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="datasetIndication">
+      <h2><span jhiTranslate="ingestionApiApp.datasetIndication.detail.title">Dataset Indication</span> {{ datasetIndication.id }}</h2>
+      <hr />
+      <jhi-alert-error></jhi-alert-error>
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ingestionApiApp.datasetIndication.datasetIndicationId">Dataset Indication Id</span></dt>
+        <dd>
+          <span>{{ datasetIndication.datasetIndicationId }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetIndication.indication">Indication</span></dt>
+        <dd>
+          <span>{{ datasetIndication.indication }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetIndication.datasetId">Dataset Id</span></dt>
+        <dd>
+          <div *ngIf="datasetIndication.datasetIdId">
+            <a [routerLink]="['/dataset-details', datasetIndication.datasetIdId, 'view']">{{ datasetIndication.datasetIdId }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info">
+        <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/dataset-indication', datasetIndication.id, 'edit']" class="btn btn-primary">
+        <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

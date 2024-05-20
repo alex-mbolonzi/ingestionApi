@@ -1,0 +1,30 @@
+{
+  "ingestionApiApp": {
+    "datasetUserUsageRestriction": {
+      "home": {
+        "title": "Dataset User Usage Restrictions",
+        "createLabel": "Create a new Dataset User Usage Restriction",
+        "createOrEditLabel": "Create or edit a Dataset User Usage Restriction",
+        "notFound": "No Dataset User Usage Restrictions found"
+      },
+      "created": "A new Dataset User Usage Restriction is created with identifier {{ param }}",
+      "updated": "A Dataset User Usage Restriction is updated with identifier {{ param }}",
+      "deleted": "A Dataset User Usage Restriction is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Dataset User Usage Restriction {{ id }}?"
+      },
+      "detail": {
+        "title": "Dataset User Usage Restriction"
+      },
+      "usageUserRestrictionId": "Usage User Restriction Id",
+      "restrictionRef": "Restriction Ref",
+      "restrictionTypeRef": "Restriction Type Ref",
+      "reasonForOther": "Reason For Other",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "modifiedBy": "Modified By",
+      "modifiedDate": "Modified Date",
+      "datasetId": "Dataset Id"
+    }
+  }
+}

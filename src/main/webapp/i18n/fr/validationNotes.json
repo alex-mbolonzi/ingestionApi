@@ -1,0 +1,28 @@
+{
+  "ingestionApiApp": {
+    "validationNotes": {
+      "home": {
+        "title": "ValidationNotes",
+        "createLabel": "Créer un nouveau Validation Notes",
+        "createOrEditLabel": "Créer ou éditer un Validation Notes",
+        "notFound": "Aucun Validation Notes trouvé"
+      },
+      "created": "Un nouveau Validation Notes a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Validation Notes avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Validation Notes avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Validation Notes {{ id }} ?"
+      },
+      "detail": {
+        "title": "Validation Notes"
+      },
+      "notesId": "Notes Id",
+      "notes": "Notes",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "modifiedBy": "Modified By",
+      "modifiedDate": "Modified Date",
+      "ingestionRequestId": "Ingestion Request Id"
+    }
+  }
+}

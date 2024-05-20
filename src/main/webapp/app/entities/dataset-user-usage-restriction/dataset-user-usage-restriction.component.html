@@ -1,0 +1,91 @@
+<div>
+  <h2 id="page-heading">
+    <span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.home.title">Dataset User Usage Restrictions</span>
+    <button
+      id="jh-create-entity"
+      class="btn btn-primary float-right jh-create-entity create-dataset-user-usage-restriction"
+      [routerLink]="['/dataset-user-usage-restriction/new']"
+    >
+      <fa-icon [icon]="'plus'"></fa-icon>
+      <span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.home.createLabel"> Create a new Dataset User Usage Restriction </span>
+    </button>
+  </h2>
+  <jhi-alert></jhi-alert>
+  <br />
+  <div class="alert alert-warning" *ngIf="datasetUserUsageRestrictions?.length === 0">
+    <span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.home.notFound">No datasetUserUsageRestrictions found</span>
+  </div>
+  <div class="table-responsive" *ngIf="datasetUserUsageRestrictions?.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th><span jhiTranslate="global.field.id">ID</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.usageUserRestrictionId">Usage User Restriction Id</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.restrictionRef">Restriction Ref</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.restrictionTypeRef">Restriction Type Ref</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.reasonForOther">Reason For Other</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.createdBy">Created By</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.createdDate">Created Date</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.modifiedBy">Modified By</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.modifiedDate">Modified Date</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.datasetId">Dataset Id</span></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let datasetUserUsageRestriction of datasetUserUsageRestrictions; trackBy: trackId">
+          <td>
+            <a [routerLink]="['/dataset-user-usage-restriction', datasetUserUsageRestriction.id, 'view']">{{
+              datasetUserUsageRestriction.id
+            }}</a>
+          </td>
+          <td>{{ datasetUserUsageRestriction.usageUserRestrictionId }}</td>
+          <td>{{ datasetUserUsageRestriction.restrictionRef }}</td>
+          <td>{{ datasetUserUsageRestriction.restrictionTypeRef }}</td>
+          <td>{{ datasetUserUsageRestriction.reasonForOther }}</td>
+          <td>{{ datasetUserUsageRestriction.createdBy }}</td>
+          <td>{{ datasetUserUsageRestriction.createdDate | date: 'medium' }}</td>
+          <td>{{ datasetUserUsageRestriction.modifiedBy }}</td>
+          <td>{{ datasetUserUsageRestriction.modifiedDate | date: 'medium' }}</td>
+          <td>
+            <div *ngIf="datasetUserUsageRestriction.datasetIdId">
+              <a [routerLink]="['/dataset-details', datasetUserUsageRestriction.datasetIdId, 'view']">{{
+                datasetUserUsageRestriction.datasetIdId
+              }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/dataset-user-usage-restriction', datasetUserUsageRestriction.id, 'view']"
+                class="btn btn-info btn-sm"
+              >
+                <fa-icon [icon]="'eye'"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+              <button
+                type="submit"
+                [routerLink]="['/dataset-user-usage-restriction', datasetUserUsageRestriction.id, 'edit']"
+                class="btn btn-primary btn-sm"
+              >
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+              <button
+                type="submit"
+                [routerLink]="['/dataset-user-usage-restriction', { outlets: { popup: datasetUserUsageRestriction.id + '/delete' } }]"
+                replaceUrl="true"
+                queryParamsHandling="merge"
+                class="btn btn-danger btn-sm"
+              >
+                <fa-icon [icon]="'times'"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

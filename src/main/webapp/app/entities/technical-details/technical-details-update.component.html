@@ -1,0 +1,542 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-technical-details-heading" jhiTranslate="ingestionApiApp.technicalDetails.home.createOrEditLabel">
+        Create or edit a Technical Details
+      </h2>
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!editForm.get('id').value">
+          <label for="id" jhiTranslate="global.field.id">ID</label>
+          <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.technicalDetails.technicalRequestId"
+            for="field_technicalRequestId"
+            >Technical Request Id</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="technicalRequestId"
+            id="field_technicalRequestId"
+            formControlName="technicalRequestId"
+          />
+          <div
+            *ngIf="
+              editForm.get('technicalRequestId').invalid &&
+              (editForm.get('technicalRequestId').dirty || editForm.get('technicalRequestId').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('technicalRequestId').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('technicalRequestId')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.technicalDetails.dataLocationPath" for="field_dataLocationPath"
+            >Data Location Path</label
+          >
+          <input type="text" class="form-control" name="dataLocationPath" id="field_dataLocationPath" formControlName="dataLocationPath" />
+          <div
+            *ngIf="
+              editForm.get('dataLocationPath').invalid &&
+              (editForm.get('dataLocationPath').dirty || editForm.get('dataLocationPath').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('dataLocationPath').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 1024 }"
+            >
+              This field cannot be longer than 1024 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.technicalDetails.dataRefreshFrequency"
+            for="field_dataRefreshFrequency"
+            >Data Refresh Frequency</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="dataRefreshFrequency"
+            id="field_dataRefreshFrequency"
+            formControlName="dataRefreshFrequency"
+          />
+          <div
+            *ngIf="
+              editForm.get('dataRefreshFrequency').invalid &&
+              (editForm.get('dataRefreshFrequency').dirty || editForm.get('dataRefreshFrequency').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('dataRefreshFrequency').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.technicalDetails.targetIngestionStartDate"
+            for="field_targetIngestionStartDate"
+            >Target Ingestion Start Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_targetIngestionStartDate"
+              type="text"
+              class="form-control"
+              name="targetIngestionStartDate"
+              ngbDatepicker
+              #targetIngestionStartDateDp="ngbDatepicker"
+              formControlName="targetIngestionStartDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="targetIngestionStartDateDp.toggle()">
+                <fa-icon [icon]="'calendar-alt'"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.technicalDetails.targetIngestionEndDate"
+            for="field_targetIngestionEndDate"
+            >Target Ingestion End Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_targetIngestionEndDate"
+              type="text"
+              class="form-control"
+              name="targetIngestionEndDate"
+              ngbDatepicker
+              #targetIngestionEndDateDp="ngbDatepicker"
+              formControlName="targetIngestionEndDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="targetIngestionEndDateDp.toggle()">
+                <fa-icon [icon]="'calendar-alt'"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.technicalDetails.targetPath" for="field_targetPath"
+            >Target Path</label
+          >
+          <input type="text" class="form-control" name="targetPath" id="field_targetPath" formControlName="targetPath" />
+          <div *ngIf="editForm.get('targetPath').invalid && (editForm.get('targetPath').dirty || editForm.get('targetPath').touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('targetPath').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 1024 }"
+            >
+              This field cannot be longer than 1024 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.technicalDetails.datasetTypeIngestionRef"
+            for="field_datasetTypeIngestionRef"
+            >Dataset Type Ingestion Ref</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="datasetTypeIngestionRef"
+            id="field_datasetTypeIngestionRef"
+            formControlName="datasetTypeIngestionRef"
+          />
+          <div
+            *ngIf="
+              editForm.get('datasetTypeIngestionRef').invalid &&
+              (editForm.get('datasetTypeIngestionRef').dirty || editForm.get('datasetTypeIngestionRef').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('datasetTypeIngestionRef').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.technicalDetails.guestUsersEmail" for="field_guestUsersEmail"
+            >Guest Users Email</label
+          >
+          <input type="text" class="form-control" name="guestUsersEmail" id="field_guestUsersEmail" formControlName="guestUsersEmail" />
+          <div
+            *ngIf="
+              editForm.get('guestUsersEmail').invalid && (editForm.get('guestUsersEmail').dirty || editForm.get('guestUsersEmail').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('guestUsersEmail').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.technicalDetails.whitelistIpAddresses"
+            for="field_whitelistIpAddresses"
+            >Whitelist Ip Addresses</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="whitelistIpAddresses"
+            id="field_whitelistIpAddresses"
+            formControlName="whitelistIpAddresses"
+          />
+          <div
+            *ngIf="
+              editForm.get('whitelistIpAddresses').invalid &&
+              (editForm.get('whitelistIpAddresses').dirty || editForm.get('whitelistIpAddresses').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('whitelistIpAddresses').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.technicalDetails.externalStagingContainerName"
+            for="field_externalStagingContainerName"
+            >External Staging Container Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="externalStagingContainerName"
+            id="field_externalStagingContainerName"
+            formControlName="externalStagingContainerName"
+          />
+          <div
+            *ngIf="
+              editForm.get('externalStagingContainerName').invalid &&
+              (editForm.get('externalStagingContainerName').dirty || editForm.get('externalStagingContainerName').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('externalStagingContainerName').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.technicalDetails.externalDataSourceLocation"
+            for="field_externalDataSourceLocation"
+            >External Data Source Location</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="externalDataSourceLocation"
+            id="field_externalDataSourceLocation"
+            formControlName="externalDataSourceLocation"
+          />
+          <div
+            *ngIf="
+              editForm.get('externalDataSourceLocation').invalid &&
+              (editForm.get('externalDataSourceLocation').dirty || editForm.get('externalDataSourceLocation').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('externalDataSourceLocation').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.technicalDetails.gskAccessSourceLocationRef"
+            for="field_gskAccessSourceLocationRef"
+            >Gsk Access Source Location Ref</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="gskAccessSourceLocationRef"
+            id="field_gskAccessSourceLocationRef"
+            formControlName="gskAccessSourceLocationRef"
+          />
+          <div
+            *ngIf="
+              editForm.get('gskAccessSourceLocationRef').invalid &&
+              (editForm.get('gskAccessSourceLocationRef').dirty || editForm.get('gskAccessSourceLocationRef').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('gskAccessSourceLocationRef').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.technicalDetails.externalSourceSecretKeyName"
+            for="field_externalSourceSecretKeyName"
+            >External Source Secret Key Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="externalSourceSecretKeyName"
+            id="field_externalSourceSecretKeyName"
+            formControlName="externalSourceSecretKeyName"
+          />
+          <div
+            *ngIf="
+              editForm.get('externalSourceSecretKeyName').invalid &&
+              (editForm.get('externalSourceSecretKeyName').dirty || editForm.get('externalSourceSecretKeyName').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('externalSourceSecretKeyName').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.technicalDetails.domainRequestId" for="field_domainRequestId"
+            >Domain Request Id</label
+          >
+          <input type="text" class="form-control" name="domainRequestId" id="field_domainRequestId" formControlName="domainRequestId" />
+          <div
+            *ngIf="
+              editForm.get('domainRequestId').invalid && (editForm.get('domainRequestId').dirty || editForm.get('domainRequestId').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('domainRequestId').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.technicalDetails.existingDataLocationIdentified"
+            for="field_existingDataLocationIdentified"
+            >Existing Data Location Identified</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="existingDataLocationIdentified"
+            id="field_existingDataLocationIdentified"
+            formControlName="existingDataLocationIdentified"
+          />
+          <div
+            *ngIf="
+              editForm.get('existingDataLocationIdentified').invalid &&
+              (editForm.get('existingDataLocationIdentified').dirty || editForm.get('existingDataLocationIdentified').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('existingDataLocationIdentified').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 1024 }"
+            >
+              This field cannot be longer than 1024 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.technicalDetails.createdBy" for="field_createdBy"
+            >Created By</label
+          >
+          <input type="text" class="form-control" name="createdBy" id="field_createdBy" formControlName="createdBy" />
+          <div *ngIf="editForm.get('createdBy').invalid && (editForm.get('createdBy').dirty || editForm.get('createdBy').touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('createdBy').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('createdBy').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.technicalDetails.createdDate" for="field_createdDate"
+            >Created Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_createdDate"
+              type="datetime-local"
+              class="form-control"
+              name="createdDate"
+              formControlName="createdDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('createdDate').invalid && (editForm.get('createdDate').dirty || editForm.get('createdDate').touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('createdDate').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('createdDate').errors?.ZonedDateTimelocal"
+              jhiTranslate="entity.validation.ZonedDateTimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.technicalDetails.modifiedBy" for="field_modifiedBy"
+            >Modified By</label
+          >
+          <input type="text" class="form-control" name="modifiedBy" id="field_modifiedBy" formControlName="modifiedBy" />
+          <div *ngIf="editForm.get('modifiedBy').invalid && (editForm.get('modifiedBy').dirty || editForm.get('modifiedBy').touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('modifiedBy').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.technicalDetails.modifiedDate" for="field_modifiedDate"
+            >Modified Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_modifiedDate"
+              type="datetime-local"
+              class="form-control"
+              name="modifiedDate"
+              formControlName="modifiedDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.technicalDetails.ingestionRequestId"
+            for="field_ingestionRequestId"
+            >Ingestion Request Id</label
+          >
+          <select class="form-control" id="field_ingestionRequestId" name="ingestionRequestId" formControlName="ingestionRequestIdId">
+            <option *ngIf="!editForm.get('ingestionRequestIdId').value" [ngValue]="null" selected></option>
+            <option
+              [ngValue]="ingestionRequestDetailsOption.id"
+              *ngFor="let ingestionRequestDetailsOption of ingestionrequestids; trackBy: trackIngestionRequestDetailsById"
+            >
+              {{ ingestionRequestDetailsOption.id }}
+            </option>
+          </select>
+        </div>
+        <div
+          *ngIf="
+            editForm.get('ingestionRequestIdId').invalid &&
+            (editForm.get('ingestionRequestIdId').dirty || editForm.get('ingestionRequestIdId').touched)
+          "
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get('ingestionRequestIdId').errors.required"
+            jhiTranslate="entity.validation.required"
+          >
+            This field is required.
+          </small>
+        </div>
+      </div>
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+          <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

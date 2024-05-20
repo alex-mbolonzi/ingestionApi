@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="datasetRoleDetails">
+      <h2><span jhiTranslate="ingestionApiApp.datasetRoleDetails.detail.title">Dataset Role Details</span> {{ datasetRoleDetails.id }}</h2>
+      <hr />
+      <jhi-alert-error></jhi-alert-error>
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ingestionApiApp.datasetRoleDetails.datasetRoleDetailsId">Dataset Role Details Id</span></dt>
+        <dd>
+          <span>{{ datasetRoleDetails.datasetRoleDetailsId }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetRoleDetails.role">Role</span></dt>
+        <dd>
+          <span>{{ datasetRoleDetails.role }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetRoleDetails.email">Email</span></dt>
+        <dd>
+          <span>{{ datasetRoleDetails.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetRoleDetails.mudid">Mudid</span></dt>
+        <dd>
+          <span>{{ datasetRoleDetails.mudid }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetRoleDetails.name">Name</span></dt>
+        <dd>
+          <span>{{ datasetRoleDetails.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetRoleDetails.datasetId">Dataset Id</span></dt>
+        <dd>
+          <div *ngIf="datasetRoleDetails.datasetIdId">
+            <a [routerLink]="['/dataset-details', datasetRoleDetails.datasetIdId, 'view']">{{ datasetRoleDetails.datasetIdId }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info">
+        <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/dataset-role-details', datasetRoleDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

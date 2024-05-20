@@ -1,0 +1,24 @@
+{
+  "ingestionApiApp": {
+    "datasetTechAndAssay": {
+      "home": {
+        "title": "DatasetTechAndAssays",
+        "createLabel": "Créer un nouveau Dataset Tech And Assay",
+        "createOrEditLabel": "Créer ou éditer un Dataset Tech And Assay",
+        "notFound": "Aucun Dataset Tech And Assay trouvé"
+      },
+      "created": "Un nouveau Dataset Tech And Assay a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Dataset Tech And Assay avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Dataset Tech And Assay avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Dataset Tech And Assay {{ id }} ?"
+      },
+      "detail": {
+        "title": "Dataset Tech And Assay"
+      },
+      "datasetTechAndAssayId": "Dataset Tech And Assay Id",
+      "techniqueAndAssay": "Technique And Assay",
+      "datasetId": "Dataset Id"
+    }
+  }
+}

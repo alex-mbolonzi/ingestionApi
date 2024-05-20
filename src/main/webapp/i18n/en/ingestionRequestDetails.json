@@ -1,0 +1,38 @@
+{
+  "ingestionApiApp": {
+    "ingestionRequestDetails": {
+      "home": {
+        "title": "Ingestion Request Details",
+        "createLabel": "Create a new Ingestion Request Details",
+        "createOrEditLabel": "Create or edit a Ingestion Request Details",
+        "notFound": "No Ingestion Request Details found"
+      },
+      "created": "A new Ingestion Request Details is created with identifier {{ param }}",
+      "updated": "A Ingestion Request Details is updated with identifier {{ param }}",
+      "deleted": "A Ingestion Request Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ingestion Request Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Ingestion Request Details"
+      },
+      "ingestionRequestId": "Ingestion Request Id",
+      "requesterName": "Requester Name",
+      "requesterMudid": "Requester Mudid",
+      "requesterEmail": "Requester Email",
+      "requestRationaleReason": "Request Rationale Reason",
+      "requestedByName": "Requested By Name",
+      "requestedByMudid": "Requested By Mudid",
+      "requestedByEmail": "Requested By Email",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "modifiedBy": "Modified By",
+      "modifiedDate": "Modified Date",
+      "modifiedReason": "Modified Reason",
+      "datasetDetails": "Dataset Details",
+      "technicalDetails": "Technical Details",
+      "requestStatusDetails": "Request Status Details",
+      "validationNotes": "Validation Notes"
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "name": "IngestionRequestDetails",
+  "fields": [
+    {
+      "fieldName": "ingestionRequestId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "requesterName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "requesterMudid",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "requesterEmail",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "requestRationaleReason",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "requestedByName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "requestedByMudid",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "requestedByEmail",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "modifiedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "modifiedDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "modifiedReason",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "datasetDetails",
+      "otherEntityRelationshipName": "ingestionRequestId",
+      "relationshipName": "datasetDetails",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "technicalDetails",
+      "otherEntityRelationshipName": "ingestionRequestId",
+      "relationshipName": "technicalDetails",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "requestStatusDetails",
+      "otherEntityRelationshipName": "ingestionRequestId",
+      "relationshipName": "requestStatusDetails"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "validationNotes",
+      "otherEntityRelationshipName": "ingestionRequestId",
+      "relationshipName": "validationNotes"
+    }
+  ],
+  "changelogDate": "20240520092205",
+  "entityTableName": "ingestion_request_details",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "applications": "*"
+}

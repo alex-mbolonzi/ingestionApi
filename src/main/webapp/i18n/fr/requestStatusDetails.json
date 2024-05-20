@@ -1,0 +1,35 @@
+{
+  "ingestionApiApp": {
+    "requestStatusDetails": {
+      "home": {
+        "title": "RequestStatusDetails",
+        "createLabel": "Créer un nouveau Request Status Details",
+        "createOrEditLabel": "Créer ou éditer un Request Status Details",
+        "notFound": "Aucun Request Status Details trouvé"
+      },
+      "created": "Un nouveau Request Status Details a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Request Status Details avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Request Status Details avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Request Status Details {{ id }} ?"
+      },
+      "detail": {
+        "title": "Request Status Details"
+      },
+      "requestStatusId": "Request Status Id",
+      "decisionByName": "Decision By Name",
+      "decisionByMudid": "Decision By Mudid",
+      "decisionByEmail": "Decision By Email",
+      "decisionDate": "Decision Date",
+      "decisionComments": "Decision Comments",
+      "rejectionReason": "Rejection Reason",
+      "activeFlag": "Active Flag",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "modifiedBy": "Modified By",
+      "modifiedDate": "Modified Date",
+      "ingestionRequestId": "Ingestion Request Id",
+      "statusId": "Status Id"
+    }
+  }
+}

@@ -1,0 +1,152 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-dataset-role-details-heading" jhiTranslate="ingestionApiApp.datasetRoleDetails.home.createOrEditLabel">
+        Create or edit a Dataset Role Details
+      </h2>
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!editForm.get('id').value">
+          <label for="id" jhiTranslate="global.field.id">ID</label>
+          <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.datasetRoleDetails.datasetRoleDetailsId"
+            for="field_datasetRoleDetailsId"
+            >Dataset Role Details Id</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="datasetRoleDetailsId"
+            id="field_datasetRoleDetailsId"
+            formControlName="datasetRoleDetailsId"
+          />
+          <div
+            *ngIf="
+              editForm.get('datasetRoleDetailsId').invalid &&
+              (editForm.get('datasetRoleDetailsId').dirty || editForm.get('datasetRoleDetailsId').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('datasetRoleDetailsId').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('datasetRoleDetailsId')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.datasetRoleDetails.role" for="field_role">Role</label>
+          <input type="text" class="form-control" name="role" id="field_role" formControlName="role" />
+          <div *ngIf="editForm.get('role').invalid && (editForm.get('role').dirty || editForm.get('role').touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('role').errors.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('role').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 45 }"
+            >
+              This field cannot be longer than 45 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.datasetRoleDetails.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" formControlName="email" />
+          <div *ngIf="editForm.get('email').invalid && (editForm.get('email').dirty || editForm.get('email').touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('email').errors.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('email').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.datasetRoleDetails.mudid" for="field_mudid">Mudid</label>
+          <input type="text" class="form-control" name="mudid" id="field_mudid" formControlName="mudid" />
+          <div *ngIf="editForm.get('mudid').invalid && (editForm.get('mudid').dirty || editForm.get('mudid').touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('mudid').errors.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('mudid').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.datasetRoleDetails.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" formControlName="name" />
+          <div *ngIf="editForm.get('name').invalid && (editForm.get('name').dirty || editForm.get('name').touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('name').errors.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('name').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.datasetRoleDetails.datasetId" for="field_datasetId"
+            >Dataset Id</label
+          >
+          <select class="form-control" id="field_datasetId" name="datasetId" formControlName="datasetIdId">
+            <option *ngIf="!editForm.get('datasetIdId').value" [ngValue]="null" selected></option>
+            <option
+              [ngValue]="datasetDetailsOption.id"
+              *ngFor="let datasetDetailsOption of datasetdetails; trackBy: trackDatasetDetailsById"
+            >
+              {{ datasetDetailsOption.id }}
+            </option>
+          </select>
+        </div>
+        <div *ngIf="editForm.get('datasetIdId').invalid && (editForm.get('datasetIdId').dirty || editForm.get('datasetIdId').touched)">
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get('datasetIdId').errors.required"
+            jhiTranslate="entity.validation.required"
+          >
+            This field is required.
+          </small>
+        </div>
+      </div>
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+          <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

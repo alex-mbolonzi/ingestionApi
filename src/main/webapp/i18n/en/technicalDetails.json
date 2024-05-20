@@ -1,0 +1,41 @@
+{
+  "ingestionApiApp": {
+    "technicalDetails": {
+      "home": {
+        "title": "Technical Details",
+        "createLabel": "Create a new Technical Details",
+        "createOrEditLabel": "Create or edit a Technical Details",
+        "notFound": "No Technical Details found"
+      },
+      "created": "A new Technical Details is created with identifier {{ param }}",
+      "updated": "A Technical Details is updated with identifier {{ param }}",
+      "deleted": "A Technical Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Technical Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Technical Details"
+      },
+      "technicalRequestId": "Technical Request Id",
+      "dataLocationPath": "Data Location Path",
+      "dataRefreshFrequency": "Data Refresh Frequency",
+      "targetIngestionStartDate": "Target Ingestion Start Date",
+      "targetIngestionEndDate": "Target Ingestion End Date",
+      "targetPath": "Target Path",
+      "datasetTypeIngestionRef": "Dataset Type Ingestion Ref",
+      "guestUsersEmail": "Guest Users Email",
+      "whitelistIpAddresses": "Whitelist Ip Addresses",
+      "externalStagingContainerName": "External Staging Container Name",
+      "externalDataSourceLocation": "External Data Source Location",
+      "gskAccessSourceLocationRef": "Gsk Access Source Location Ref",
+      "externalSourceSecretKeyName": "External Source Secret Key Name",
+      "domainRequestId": "Domain Request Id",
+      "existingDataLocationIdentified": "Existing Data Location Identified",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "modifiedBy": "Modified By",
+      "modifiedDate": "Modified Date",
+      "ingestionRequestId": "Ingestion Request Id"
+    }
+  }
+}

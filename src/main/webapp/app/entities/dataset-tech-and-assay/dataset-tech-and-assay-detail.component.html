@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="datasetTechAndAssay">
+      <h2>
+        <span jhiTranslate="ingestionApiApp.datasetTechAndAssay.detail.title">Dataset Tech And Assay</span> {{ datasetTechAndAssay.id }}
+      </h2>
+      <hr />
+      <jhi-alert-error></jhi-alert-error>
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ingestionApiApp.datasetTechAndAssay.datasetTechAndAssayId">Dataset Tech And Assay Id</span></dt>
+        <dd>
+          <span>{{ datasetTechAndAssay.datasetTechAndAssayId }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetTechAndAssay.techniqueAndAssay">Technique And Assay</span></dt>
+        <dd>
+          <span>{{ datasetTechAndAssay.techniqueAndAssay }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetTechAndAssay.datasetId">Dataset Id</span></dt>
+        <dd>
+          <div *ngIf="datasetTechAndAssay.datasetIdId">
+            <a [routerLink]="['/dataset-details', datasetTechAndAssay.datasetIdId, 'view']">{{ datasetTechAndAssay.datasetIdId }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info">
+        <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/dataset-tech-and-assay', datasetTechAndAssay.id, 'edit']" class="btn btn-primary">
+        <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

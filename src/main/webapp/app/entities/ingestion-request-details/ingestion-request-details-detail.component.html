@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ingestionRequestDetails">
+      <h2>
+        <span jhiTranslate="ingestionApiApp.ingestionRequestDetails.detail.title">Ingestion Request Details</span>
+        {{ ingestionRequestDetails.id }}
+      </h2>
+      <hr />
+      <jhi-alert-error></jhi-alert-error>
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ingestionApiApp.ingestionRequestDetails.ingestionRequestId">Ingestion Request Id</span></dt>
+        <dd>
+          <span>{{ ingestionRequestDetails.ingestionRequestId }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.ingestionRequestDetails.requesterName">Requester Name</span></dt>
+        <dd>
+          <span>{{ ingestionRequestDetails.requesterName }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.ingestionRequestDetails.requesterMudid">Requester Mudid</span></dt>
+        <dd>
+          <span>{{ ingestionRequestDetails.requesterMudid }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.ingestionRequestDetails.requesterEmail">Requester Email</span></dt>
+        <dd>
+          <span>{{ ingestionRequestDetails.requesterEmail }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.ingestionRequestDetails.requestRationaleReason">Request Rationale Reason</span></dt>
+        <dd>
+          <span>{{ ingestionRequestDetails.requestRationaleReason }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.ingestionRequestDetails.requestedByName">Requested By Name</span></dt>
+        <dd>
+          <span>{{ ingestionRequestDetails.requestedByName }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.ingestionRequestDetails.requestedByMudid">Requested By Mudid</span></dt>
+        <dd>
+          <span>{{ ingestionRequestDetails.requestedByMudid }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.ingestionRequestDetails.requestedByEmail">Requested By Email</span></dt>
+        <dd>
+          <span>{{ ingestionRequestDetails.requestedByEmail }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.ingestionRequestDetails.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ ingestionRequestDetails.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.ingestionRequestDetails.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ ingestionRequestDetails.createdDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.ingestionRequestDetails.modifiedBy">Modified By</span></dt>
+        <dd>
+          <span>{{ ingestionRequestDetails.modifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.ingestionRequestDetails.modifiedDate">Modified Date</span></dt>
+        <dd>
+          <span>{{ ingestionRequestDetails.modifiedDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.ingestionRequestDetails.modifiedReason">Modified Reason</span></dt>
+        <dd>
+          <span>{{ ingestionRequestDetails.modifiedReason }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info">
+        <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ingestion-request-details', ingestionRequestDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

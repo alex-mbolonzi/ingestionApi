@@ -1,0 +1,252 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-application-reference-table-heading" jhiTranslate="ingestionApiApp.applicationReferenceTable.home.createOrEditLabel">
+        Create or edit a Application Reference Table
+      </h2>
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!editForm.get('id').value">
+          <label for="id" jhiTranslate="global.field.id">ID</label>
+          <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.applicationReferenceTable.referenceId" for="field_referenceId"
+            >Reference Id</label
+          >
+          <input type="number" class="form-control" name="referenceId" id="field_referenceId" formControlName="referenceId" />
+          <div *ngIf="editForm.get('referenceId').invalid && (editForm.get('referenceId').dirty || editForm.get('referenceId').touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('referenceId').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('referenceId')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.applicationReferenceTable.referenceData" for="field_referenceData"
+            >Reference Data</label
+          >
+          <input type="text" class="form-control" name="referenceData" id="field_referenceData" formControlName="referenceData" />
+          <div
+            *ngIf="editForm.get('referenceData').invalid && (editForm.get('referenceData').dirty || editForm.get('referenceData').touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('referenceData').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('referenceData').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.applicationReferenceTable.referenceDataType"
+            for="field_referenceDataType"
+            >Reference Data Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="referenceDataType"
+            id="field_referenceDataType"
+            formControlName="referenceDataType"
+          />
+          <div
+            *ngIf="
+              editForm.get('referenceDataType').invalid &&
+              (editForm.get('referenceDataType').dirty || editForm.get('referenceDataType').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('referenceDataType').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('referenceDataType').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.applicationReferenceTable.createdBy" for="field_createdBy"
+            >Created By</label
+          >
+          <input type="text" class="form-control" name="createdBy" id="field_createdBy" formControlName="createdBy" />
+          <div *ngIf="editForm.get('createdBy').invalid && (editForm.get('createdBy').dirty || editForm.get('createdBy').touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('createdBy').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('createdBy').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.applicationReferenceTable.createdDate" for="field_createdDate"
+            >Created Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_createdDate"
+              type="datetime-local"
+              class="form-control"
+              name="createdDate"
+              formControlName="createdDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('createdDate').invalid && (editForm.get('createdDate').dirty || editForm.get('createdDate').touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('createdDate').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('createdDate').errors?.ZonedDateTimelocal"
+              jhiTranslate="entity.validation.ZonedDateTimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.applicationReferenceTable.modifiedBy" for="field_modifiedBy"
+            >Modified By</label
+          >
+          <input type="text" class="form-control" name="modifiedBy" id="field_modifiedBy" formControlName="modifiedBy" />
+          <div *ngIf="editForm.get('modifiedBy').invalid && (editForm.get('modifiedBy').dirty || editForm.get('modifiedBy').touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('modifiedBy').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="ingestionApiApp.applicationReferenceTable.modifiedDate" for="field_modifiedDate"
+            >Modified Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_modifiedDate"
+              type="datetime-local"
+              class="form-control"
+              name="modifiedDate"
+              formControlName="modifiedDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.applicationReferenceTable.referenceOrder"
+            for="field_referenceOrder"
+            >Reference Order</label
+          >
+          <input type="number" class="form-control" name="referenceOrder" id="field_referenceOrder" formControlName="referenceOrder" />
+          <div
+            *ngIf="
+              editForm.get('referenceOrder').invalid && (editForm.get('referenceOrder').dirty || editForm.get('referenceOrder').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('referenceOrder').errors.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('referenceOrder')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="ingestionApiApp.applicationReferenceTable.referenceGroupType"
+            for="field_referenceGroupType"
+            >Reference Group Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="referenceGroupType"
+            id="field_referenceGroupType"
+            formControlName="referenceGroupType"
+          />
+          <div
+            *ngIf="
+              editForm.get('referenceGroupType').invalid &&
+              (editForm.get('referenceGroupType').dirty || editForm.get('referenceGroupType').touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('referenceGroupType').errors.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+          <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

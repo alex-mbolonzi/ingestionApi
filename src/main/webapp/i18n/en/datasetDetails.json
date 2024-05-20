@@ -1,0 +1,51 @@
+{
+  "ingestionApiApp": {
+    "datasetDetails": {
+      "home": {
+        "title": "Dataset Details",
+        "createLabel": "Create a new Dataset Details",
+        "createOrEditLabel": "Create or edit a Dataset Details",
+        "notFound": "No Dataset Details found"
+      },
+      "created": "A new Dataset Details is created with identifier {{ param }}",
+      "updated": "A Dataset Details is updated with identifier {{ param }}",
+      "deleted": "A Dataset Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Dataset Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Dataset Details"
+      },
+      "datasetId": "Dataset Id",
+      "datasetName": "Dataset Name",
+      "datasetOriginSource": "Dataset Origin Source",
+      "currentDataLocationRef": "Current Data Location Ref",
+      "meteorSpaceDominoUsageFlag": "Meteor Space Domino Usage Flag",
+      "ihdFlag": "Ihd Flag",
+      "datasetRequiredForRef": "Dataset Required For Ref",
+      "estimatedDataVolumeRef": "Estimated Data Volume Ref",
+      "analysisInitDt": "Analysis Init Dt",
+      "analysisEndDt": "Analysis End Dt",
+      "dtaContractCompleteFlag": "Dta Contract Complete Flag",
+      "dtaExpectedCompletionDate": "Dta Expected Completion Date",
+      "datasetTypeRef": "Dataset Type Ref",
+      "informationClassificationTypeRef": "Information Classification Type Ref",
+      "piiTypeRef": "Pii Type Ref",
+      "retentionRules": "Retention Rules",
+      "retentionRulesContractDate": "Retention Rules Contract Date",
+      "contractPartner": "Contract Partner",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "modifiedBy": "Modified By",
+      "modifiedDate": "Modified Date",
+      "ingestionRequestId": "Ingestion Request Id",
+      "datasetDataCategory": "Dataset Data Category",
+      "datasetIndication": "Dataset Indication",
+      "datasetRoleDetails": "Dataset Role Details",
+      "datasetStudy": "Dataset Study",
+      "datasetTechAndAssay": "Dataset Tech And Assay",
+      "datasetTherapy": "Dataset Therapy",
+      "datasetUserUsageRestriction": "Dataset User Usage Restriction"
+    }
+  }
+}

@@ -1,0 +1,99 @@
+<div>
+  <h2 id="page-heading">
+    <span jhiTranslate="ingestionApiApp.requestStatusDetails.home.title">Request Status Details</span>
+    <button
+      id="jh-create-entity"
+      class="btn btn-primary float-right jh-create-entity create-request-status-details"
+      [routerLink]="['/request-status-details/new']"
+    >
+      <fa-icon [icon]="'plus'"></fa-icon>
+      <span jhiTranslate="ingestionApiApp.requestStatusDetails.home.createLabel"> Create a new Request Status Details </span>
+    </button>
+  </h2>
+  <jhi-alert></jhi-alert>
+  <br />
+  <div class="alert alert-warning" *ngIf="requestStatusDetails?.length === 0">
+    <span jhiTranslate="ingestionApiApp.requestStatusDetails.home.notFound">No requestStatusDetails found</span>
+  </div>
+  <div class="table-responsive" *ngIf="requestStatusDetails?.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th><span jhiTranslate="global.field.id">ID</span></th>
+          <th><span jhiTranslate="ingestionApiApp.requestStatusDetails.requestStatusId">Request Status Id</span></th>
+          <th><span jhiTranslate="ingestionApiApp.requestStatusDetails.decisionByName">Decision By Name</span></th>
+          <th><span jhiTranslate="ingestionApiApp.requestStatusDetails.decisionByMudid">Decision By Mudid</span></th>
+          <th><span jhiTranslate="ingestionApiApp.requestStatusDetails.decisionByEmail">Decision By Email</span></th>
+          <th><span jhiTranslate="ingestionApiApp.requestStatusDetails.decisionDate">Decision Date</span></th>
+          <th><span jhiTranslate="ingestionApiApp.requestStatusDetails.decisionComments">Decision Comments</span></th>
+          <th><span jhiTranslate="ingestionApiApp.requestStatusDetails.rejectionReason">Rejection Reason</span></th>
+          <th><span jhiTranslate="ingestionApiApp.requestStatusDetails.activeFlag">Active Flag</span></th>
+          <th><span jhiTranslate="ingestionApiApp.requestStatusDetails.createdBy">Created By</span></th>
+          <th><span jhiTranslate="ingestionApiApp.requestStatusDetails.createdDate">Created Date</span></th>
+          <th><span jhiTranslate="ingestionApiApp.requestStatusDetails.modifiedBy">Modified By</span></th>
+          <th><span jhiTranslate="ingestionApiApp.requestStatusDetails.modifiedDate">Modified Date</span></th>
+          <th><span jhiTranslate="ingestionApiApp.requestStatusDetails.ingestionRequestId">Ingestion Request Id</span></th>
+          <th><span jhiTranslate="ingestionApiApp.requestStatusDetails.statusId">Status Id</span></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let requestStatusDetails of requestStatusDetails; trackBy: trackId">
+          <td>
+            <a [routerLink]="['/request-status-details', requestStatusDetails.id, 'view']">{{ requestStatusDetails.id }}</a>
+          </td>
+          <td>{{ requestStatusDetails.requestStatusId }}</td>
+          <td>{{ requestStatusDetails.decisionByName }}</td>
+          <td>{{ requestStatusDetails.decisionByMudid }}</td>
+          <td>{{ requestStatusDetails.decisionByEmail }}</td>
+          <td>{{ requestStatusDetails.decisionDate | date: 'medium' }}</td>
+          <td>{{ requestStatusDetails.decisionComments }}</td>
+          <td>{{ requestStatusDetails.rejectionReason }}</td>
+          <td>{{ requestStatusDetails.activeFlag }}</td>
+          <td>{{ requestStatusDetails.createdBy }}</td>
+          <td>{{ requestStatusDetails.createdDate | date: 'medium' }}</td>
+          <td>{{ requestStatusDetails.modifiedBy }}</td>
+          <td>{{ requestStatusDetails.modifiedDate | date: 'medium' }}</td>
+          <td>
+            <div *ngIf="requestStatusDetails.ingestionRequestIdId">
+              <a [routerLink]="['/ingestion-request-details', requestStatusDetails.ingestionRequestIdId, 'view']">{{
+                requestStatusDetails.ingestionRequestIdId
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="requestStatusDetails.statusIdId">
+              <a [routerLink]="['/status', requestStatusDetails.statusIdId, 'view']">{{ requestStatusDetails.statusIdStatusIdRef }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/request-status-details', requestStatusDetails.id, 'view']" class="btn btn-info btn-sm">
+                <fa-icon [icon]="'eye'"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+              <button
+                type="submit"
+                [routerLink]="['/request-status-details', requestStatusDetails.id, 'edit']"
+                class="btn btn-primary btn-sm"
+              >
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+              <button
+                type="submit"
+                [routerLink]="['/request-status-details', { outlets: { popup: requestStatusDetails.id + '/delete' } }]"
+                replaceUrl="true"
+                queryParamsHandling="merge"
+                class="btn btn-danger btn-sm"
+              >
+                <fa-icon [icon]="'times'"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

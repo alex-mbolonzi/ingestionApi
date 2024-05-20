@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="datasetUserUsageRestriction">
+      <h2>
+        <span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.detail.title">Dataset User Usage Restriction</span>
+        {{ datasetUserUsageRestriction.id }}
+      </h2>
+      <hr />
+      <jhi-alert-error></jhi-alert-error>
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.usageUserRestrictionId">Usage User Restriction Id</span></dt>
+        <dd>
+          <span>{{ datasetUserUsageRestriction.usageUserRestrictionId }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.restrictionRef">Restriction Ref</span></dt>
+        <dd>
+          <span>{{ datasetUserUsageRestriction.restrictionRef }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.restrictionTypeRef">Restriction Type Ref</span></dt>
+        <dd>
+          <span>{{ datasetUserUsageRestriction.restrictionTypeRef }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.reasonForOther">Reason For Other</span></dt>
+        <dd>
+          <span>{{ datasetUserUsageRestriction.reasonForOther }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ datasetUserUsageRestriction.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ datasetUserUsageRestriction.createdDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.modifiedBy">Modified By</span></dt>
+        <dd>
+          <span>{{ datasetUserUsageRestriction.modifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.modifiedDate">Modified Date</span></dt>
+        <dd>
+          <span>{{ datasetUserUsageRestriction.modifiedDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetUserUsageRestriction.datasetId">Dataset Id</span></dt>
+        <dd>
+          <div *ngIf="datasetUserUsageRestriction.datasetIdId">
+            <a [routerLink]="['/dataset-details', datasetUserUsageRestriction.datasetIdId, 'view']">{{
+              datasetUserUsageRestriction.datasetIdId
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info">
+        <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/dataset-user-usage-restriction', datasetUserUsageRestriction.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+{
+  "name": "DatasetDataCategory",
+  "fields": [
+    {
+      "fieldName": "datasetDataCategoryId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dataCategoryRef",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "datasetDetails",
+      "otherEntityRelationshipName": "datasetDataCategory",
+      "relationshipValidateRules": "required",
+      "relationshipName": "datasetId",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20240520092156",
+  "entityTableName": "dataset_data_category",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "applications": "*"
+}

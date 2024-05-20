@@ -1,0 +1,111 @@
+<div>
+  <h2 id="page-heading">
+    <span jhiTranslate="ingestionApiApp.datasetDetails.home.title">Dataset Details</span>
+    <button
+      id="jh-create-entity"
+      class="btn btn-primary float-right jh-create-entity create-dataset-details"
+      [routerLink]="['/dataset-details/new']"
+    >
+      <fa-icon [icon]="'plus'"></fa-icon>
+      <span jhiTranslate="ingestionApiApp.datasetDetails.home.createLabel"> Create a new Dataset Details </span>
+    </button>
+  </h2>
+  <jhi-alert></jhi-alert>
+  <br />
+  <div class="alert alert-warning" *ngIf="datasetDetails?.length === 0">
+    <span jhiTranslate="ingestionApiApp.datasetDetails.home.notFound">No datasetDetails found</span>
+  </div>
+  <div class="table-responsive" *ngIf="datasetDetails?.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th><span jhiTranslate="global.field.id">ID</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.datasetId">Dataset Id</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.datasetName">Dataset Name</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.datasetOriginSource">Dataset Origin Source</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.currentDataLocationRef">Current Data Location Ref</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.meteorSpaceDominoUsageFlag">Meteor Space Domino Usage Flag</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.ihdFlag">Ihd Flag</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.datasetRequiredForRef">Dataset Required For Ref</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.estimatedDataVolumeRef">Estimated Data Volume Ref</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.analysisInitDt">Analysis Init Dt</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.analysisEndDt">Analysis End Dt</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.dtaContractCompleteFlag">Dta Contract Complete Flag</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.dtaExpectedCompletionDate">Dta Expected Completion Date</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.datasetTypeRef">Dataset Type Ref</span></th>
+          <th>
+            <span jhiTranslate="ingestionApiApp.datasetDetails.informationClassificationTypeRef">Information Classification Type Ref</span>
+          </th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.piiTypeRef">Pii Type Ref</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.retentionRules">Retention Rules</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.retentionRulesContractDate">Retention Rules Contract Date</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.contractPartner">Contract Partner</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.createdBy">Created By</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.createdDate">Created Date</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.modifiedBy">Modified By</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.modifiedDate">Modified Date</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetDetails.ingestionRequestId">Ingestion Request Id</span></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let datasetDetails of datasetDetails; trackBy: trackId">
+          <td>
+            <a [routerLink]="['/dataset-details', datasetDetails.id, 'view']">{{ datasetDetails.id }}</a>
+          </td>
+          <td>{{ datasetDetails.datasetId }}</td>
+          <td>{{ datasetDetails.datasetName }}</td>
+          <td>{{ datasetDetails.datasetOriginSource }}</td>
+          <td>{{ datasetDetails.currentDataLocationRef }}</td>
+          <td>{{ datasetDetails.meteorSpaceDominoUsageFlag }}</td>
+          <td>{{ datasetDetails.ihdFlag }}</td>
+          <td>{{ datasetDetails.datasetRequiredForRef }}</td>
+          <td>{{ datasetDetails.estimatedDataVolumeRef }}</td>
+          <td>{{ datasetDetails.analysisInitDt | date: 'mediumDate' }}</td>
+          <td>{{ datasetDetails.analysisEndDt | date: 'mediumDate' }}</td>
+          <td>{{ datasetDetails.dtaContractCompleteFlag }}</td>
+          <td>{{ datasetDetails.dtaExpectedCompletionDate | date: 'mediumDate' }}</td>
+          <td>{{ datasetDetails.datasetTypeRef }}</td>
+          <td>{{ datasetDetails.informationClassificationTypeRef }}</td>
+          <td>{{ datasetDetails.piiTypeRef }}</td>
+          <td>{{ datasetDetails.retentionRules }}</td>
+          <td>{{ datasetDetails.retentionRulesContractDate | date: 'mediumDate' }}</td>
+          <td>{{ datasetDetails.contractPartner }}</td>
+          <td>{{ datasetDetails.createdBy }}</td>
+          <td>{{ datasetDetails.createdDate | date: 'medium' }}</td>
+          <td>{{ datasetDetails.modifiedBy }}</td>
+          <td>{{ datasetDetails.modifiedDate | date: 'medium' }}</td>
+          <td>
+            <div *ngIf="datasetDetails.ingestionRequestIdId">
+              <a [routerLink]="['/ingestion-request-details', datasetDetails.ingestionRequestIdId, 'view']">{{
+                datasetDetails.ingestionRequestIdId
+              }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/dataset-details', datasetDetails.id, 'view']" class="btn btn-info btn-sm">
+                <fa-icon [icon]="'eye'"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+              <button type="submit" [routerLink]="['/dataset-details', datasetDetails.id, 'edit']" class="btn btn-primary btn-sm">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+              <button
+                type="submit"
+                [routerLink]="['/dataset-details', { outlets: { popup: datasetDetails.id + '/delete' } }]"
+                replaceUrl="true"
+                queryParamsHandling="merge"
+                class="btn btn-danger btn-sm"
+              >
+                <fa-icon [icon]="'times'"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

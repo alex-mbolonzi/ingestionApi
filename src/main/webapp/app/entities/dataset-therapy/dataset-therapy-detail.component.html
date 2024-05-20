@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="datasetTherapy">
+      <h2><span jhiTranslate="ingestionApiApp.datasetTherapy.detail.title">Dataset Therapy</span> {{ datasetTherapy.id }}</h2>
+      <hr />
+      <jhi-alert-error></jhi-alert-error>
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ingestionApiApp.datasetTherapy.datasetTheraphyId">Dataset Theraphy Id</span></dt>
+        <dd>
+          <span>{{ datasetTherapy.datasetTheraphyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetTherapy.therapy">Therapy</span></dt>
+        <dd>
+          <span>{{ datasetTherapy.therapy }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetTherapy.datasetId">Dataset Id</span></dt>
+        <dd>
+          <div *ngIf="datasetTherapy.datasetIdId">
+            <a [routerLink]="['/dataset-details', datasetTherapy.datasetIdId, 'view']">{{ datasetTherapy.datasetIdId }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info">
+        <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/dataset-therapy', datasetTherapy.id, 'edit']" class="btn btn-primary">
+        <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

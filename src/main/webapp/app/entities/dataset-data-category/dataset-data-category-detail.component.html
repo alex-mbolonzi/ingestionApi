@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="datasetDataCategory">
+      <h2>
+        <span jhiTranslate="ingestionApiApp.datasetDataCategory.detail.title">Dataset Data Category</span> {{ datasetDataCategory.id }}
+      </h2>
+      <hr />
+      <jhi-alert-error></jhi-alert-error>
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ingestionApiApp.datasetDataCategory.datasetDataCategoryId">Dataset Data Category Id</span></dt>
+        <dd>
+          <span>{{ datasetDataCategory.datasetDataCategoryId }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDataCategory.dataCategoryRef">Data Category Ref</span></dt>
+        <dd>
+          <span>{{ datasetDataCategory.dataCategoryRef }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDataCategory.datasetId">Dataset Id</span></dt>
+        <dd>
+          <div *ngIf="datasetDataCategory.datasetIdId">
+            <a [routerLink]="['/dataset-details', datasetDataCategory.datasetIdId, 'view']">{{ datasetDataCategory.datasetIdId }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info">
+        <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/dataset-data-category', datasetDataCategory.id, 'edit']" class="btn btn-primary">
+        <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

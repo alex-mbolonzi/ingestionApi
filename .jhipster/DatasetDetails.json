@@ -1,0 +1,181 @@
+{
+  "name": "DatasetDetails",
+  "fields": [
+    {
+      "fieldName": "datasetId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "datasetName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "datasetOriginSource",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "currentDataLocationRef",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "meteorSpaceDominoUsageFlag",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "ihdFlag",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "datasetRequiredForRef",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "estimatedDataVolumeRef",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "analysisInitDt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "analysisEndDt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dtaContractCompleteFlag",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "dtaExpectedCompletionDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "datasetTypeRef",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "informationClassificationTypeRef",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "piiTypeRef",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "retentionRules",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "retentionRulesContractDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "contractPartner",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "modifiedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    },
+    {
+      "fieldName": "modifiedDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "ingestionRequestDetails",
+      "otherEntityRelationshipName": "datasetDetails",
+      "relationshipValidateRules": "required",
+      "relationshipName": "ingestionRequestId",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "datasetDataCategory",
+      "otherEntityRelationshipName": "datasetId",
+      "relationshipName": "datasetDataCategory"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "datasetIndication",
+      "otherEntityRelationshipName": "datasetId",
+      "relationshipName": "datasetIndication"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "datasetRoleDetails",
+      "otherEntityRelationshipName": "datasetId",
+      "relationshipName": "datasetRoleDetails"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "datasetStudy",
+      "otherEntityRelationshipName": "datasetId",
+      "relationshipName": "datasetStudy"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "datasetTechAndAssay",
+      "otherEntityRelationshipName": "datasetId",
+      "relationshipName": "datasetTechAndAssay"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "datasetTherapy",
+      "otherEntityRelationshipName": "datasetId",
+      "relationshipName": "datasetTherapy"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "datasetUserUsageRestriction",
+      "otherEntityRelationshipName": "datasetId",
+      "relationshipName": "datasetUserUsageRestriction"
+    }
+  ],
+  "changelogDate": "20240520092157",
+  "entityTableName": "dataset_details",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "applications": "*"
+}

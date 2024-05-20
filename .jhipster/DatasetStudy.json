@@ -1,0 +1,35 @@
+{
+  "name": "DatasetStudy",
+  "fields": [
+    {
+      "fieldName": "datasetStudyId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "studyId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "datasetDetails",
+      "otherEntityRelationshipName": "datasetStudy",
+      "relationshipValidateRules": "required",
+      "relationshipName": "datasetId",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20240520092200",
+  "entityTableName": "dataset_study",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "applications": "*"
+}

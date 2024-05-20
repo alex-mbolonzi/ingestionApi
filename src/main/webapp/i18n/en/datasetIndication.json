@@ -1,0 +1,24 @@
+{
+  "ingestionApiApp": {
+    "datasetIndication": {
+      "home": {
+        "title": "Dataset Indications",
+        "createLabel": "Create a new Dataset Indication",
+        "createOrEditLabel": "Create or edit a Dataset Indication",
+        "notFound": "No Dataset Indications found"
+      },
+      "created": "A new Dataset Indication is created with identifier {{ param }}",
+      "updated": "A Dataset Indication is updated with identifier {{ param }}",
+      "deleted": "A Dataset Indication is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Dataset Indication {{ id }}?"
+      },
+      "detail": {
+        "title": "Dataset Indication"
+      },
+      "datasetIndicationId": "Dataset Indication Id",
+      "indication": "Indication",
+      "datasetId": "Dataset Id"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "ingestionApiApp": {
+    "datasetDataCategory": {
+      "home": {
+        "title": "DatasetDataCategories",
+        "createLabel": "Créer un nouveau Dataset Data Category",
+        "createOrEditLabel": "Créer ou éditer un Dataset Data Category",
+        "notFound": "Aucun Dataset Data Category trouvé"
+      },
+      "created": "Un nouveau Dataset Data Category a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Dataset Data Category avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Dataset Data Category avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Dataset Data Category {{ id }} ?"
+      },
+      "detail": {
+        "title": "Dataset Data Category"
+      },
+      "datasetDataCategoryId": "Dataset Data Category Id",
+      "dataCategoryRef": "Data Category Ref",
+      "datasetId": "Dataset Id"
+    }
+  }
+}

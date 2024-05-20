@@ -1,0 +1,67 @@
+<div>
+  <h2 id="page-heading">
+    <span jhiTranslate="ingestionApiApp.datasetStudy.home.title">Dataset Studies</span>
+    <button
+      id="jh-create-entity"
+      class="btn btn-primary float-right jh-create-entity create-dataset-study"
+      [routerLink]="['/dataset-study/new']"
+    >
+      <fa-icon [icon]="'plus'"></fa-icon>
+      <span jhiTranslate="ingestionApiApp.datasetStudy.home.createLabel"> Create a new Dataset Study </span>
+    </button>
+  </h2>
+  <jhi-alert></jhi-alert>
+  <br />
+  <div class="alert alert-warning" *ngIf="datasetStudies?.length === 0">
+    <span jhiTranslate="ingestionApiApp.datasetStudy.home.notFound">No datasetStudies found</span>
+  </div>
+  <div class="table-responsive" *ngIf="datasetStudies?.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th><span jhiTranslate="global.field.id">ID</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetStudy.datasetStudyId">Dataset Study Id</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetStudy.studyId">Study Id</span></th>
+          <th><span jhiTranslate="ingestionApiApp.datasetStudy.datasetId">Dataset Id</span></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let datasetStudy of datasetStudies; trackBy: trackId">
+          <td>
+            <a [routerLink]="['/dataset-study', datasetStudy.id, 'view']">{{ datasetStudy.id }}</a>
+          </td>
+          <td>{{ datasetStudy.datasetStudyId }}</td>
+          <td>{{ datasetStudy.studyId }}</td>
+          <td>
+            <div *ngIf="datasetStudy.datasetIdId">
+              <a [routerLink]="['/dataset-details', datasetStudy.datasetIdId, 'view']">{{ datasetStudy.datasetIdId }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/dataset-study', datasetStudy.id, 'view']" class="btn btn-info btn-sm">
+                <fa-icon [icon]="'eye'"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+              <button type="submit" [routerLink]="['/dataset-study', datasetStudy.id, 'edit']" class="btn btn-primary btn-sm">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+              <button
+                type="submit"
+                [routerLink]="['/dataset-study', { outlets: { popup: datasetStudy.id + '/delete' } }]"
+                replaceUrl="true"
+                queryParamsHandling="merge"
+                class="btn btn-danger btn-sm"
+              >
+                <fa-icon [icon]="'times'"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

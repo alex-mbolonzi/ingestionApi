@@ -1,0 +1,105 @@
+<div>
+  <h2 id="page-heading">
+    <span jhiTranslate="ingestionApiApp.technicalDetails.home.title">Technical Details</span>
+    <button
+      id="jh-create-entity"
+      class="btn btn-primary float-right jh-create-entity create-technical-details"
+      [routerLink]="['/technical-details/new']"
+    >
+      <fa-icon [icon]="'plus'"></fa-icon>
+      <span jhiTranslate="ingestionApiApp.technicalDetails.home.createLabel"> Create a new Technical Details </span>
+    </button>
+  </h2>
+  <jhi-alert></jhi-alert>
+  <br />
+  <div class="alert alert-warning" *ngIf="technicalDetails?.length === 0">
+    <span jhiTranslate="ingestionApiApp.technicalDetails.home.notFound">No technicalDetails found</span>
+  </div>
+  <div class="table-responsive" *ngIf="technicalDetails?.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th><span jhiTranslate="global.field.id">ID</span></th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.technicalRequestId">Technical Request Id</span></th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.dataLocationPath">Data Location Path</span></th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.dataRefreshFrequency">Data Refresh Frequency</span></th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.targetIngestionStartDate">Target Ingestion Start Date</span></th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.targetIngestionEndDate">Target Ingestion End Date</span></th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.targetPath">Target Path</span></th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.datasetTypeIngestionRef">Dataset Type Ingestion Ref</span></th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.guestUsersEmail">Guest Users Email</span></th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.whitelistIpAddresses">Whitelist Ip Addresses</span></th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.externalStagingContainerName">External Staging Container Name</span></th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.externalDataSourceLocation">External Data Source Location</span></th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.gskAccessSourceLocationRef">Gsk Access Source Location Ref</span></th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.externalSourceSecretKeyName">External Source Secret Key Name</span></th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.domainRequestId">Domain Request Id</span></th>
+          <th>
+            <span jhiTranslate="ingestionApiApp.technicalDetails.existingDataLocationIdentified">Existing Data Location Identified</span>
+          </th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.createdBy">Created By</span></th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.createdDate">Created Date</span></th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.modifiedBy">Modified By</span></th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.modifiedDate">Modified Date</span></th>
+          <th><span jhiTranslate="ingestionApiApp.technicalDetails.ingestionRequestId">Ingestion Request Id</span></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let technicalDetails of technicalDetails; trackBy: trackId">
+          <td>
+            <a [routerLink]="['/technical-details', technicalDetails.id, 'view']">{{ technicalDetails.id }}</a>
+          </td>
+          <td>{{ technicalDetails.technicalRequestId }}</td>
+          <td>{{ technicalDetails.dataLocationPath }}</td>
+          <td>{{ technicalDetails.dataRefreshFrequency }}</td>
+          <td>{{ technicalDetails.targetIngestionStartDate | date: 'mediumDate' }}</td>
+          <td>{{ technicalDetails.targetIngestionEndDate | date: 'mediumDate' }}</td>
+          <td>{{ technicalDetails.targetPath }}</td>
+          <td>{{ technicalDetails.datasetTypeIngestionRef }}</td>
+          <td>{{ technicalDetails.guestUsersEmail }}</td>
+          <td>{{ technicalDetails.whitelistIpAddresses }}</td>
+          <td>{{ technicalDetails.externalStagingContainerName }}</td>
+          <td>{{ technicalDetails.externalDataSourceLocation }}</td>
+          <td>{{ technicalDetails.gskAccessSourceLocationRef }}</td>
+          <td>{{ technicalDetails.externalSourceSecretKeyName }}</td>
+          <td>{{ technicalDetails.domainRequestId }}</td>
+          <td>{{ technicalDetails.existingDataLocationIdentified }}</td>
+          <td>{{ technicalDetails.createdBy }}</td>
+          <td>{{ technicalDetails.createdDate | date: 'medium' }}</td>
+          <td>{{ technicalDetails.modifiedBy }}</td>
+          <td>{{ technicalDetails.modifiedDate | date: 'medium' }}</td>
+          <td>
+            <div *ngIf="technicalDetails.ingestionRequestIdId">
+              <a [routerLink]="['/ingestion-request-details', technicalDetails.ingestionRequestIdId, 'view']">{{
+                technicalDetails.ingestionRequestIdId
+              }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/technical-details', technicalDetails.id, 'view']" class="btn btn-info btn-sm">
+                <fa-icon [icon]="'eye'"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+              <button type="submit" [routerLink]="['/technical-details', technicalDetails.id, 'edit']" class="btn btn-primary btn-sm">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+              <button
+                type="submit"
+                [routerLink]="['/technical-details', { outlets: { popup: technicalDetails.id + '/delete' } }]"
+                replaceUrl="true"
+                queryParamsHandling="merge"
+                class="btn btn-danger btn-sm"
+              >
+                <fa-icon [icon]="'times'"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

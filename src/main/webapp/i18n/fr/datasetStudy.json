@@ -1,0 +1,24 @@
+{
+  "ingestionApiApp": {
+    "datasetStudy": {
+      "home": {
+        "title": "DatasetStudies",
+        "createLabel": "Créer un nouveau Dataset Study",
+        "createOrEditLabel": "Créer ou éditer un Dataset Study",
+        "notFound": "Aucun Dataset Study trouvé"
+      },
+      "created": "Un nouveau Dataset Study a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Dataset Study avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Dataset Study avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Dataset Study {{ id }} ?"
+      },
+      "detail": {
+        "title": "Dataset Study"
+      },
+      "datasetStudyId": "Dataset Study Id",
+      "studyId": "Study Id",
+      "datasetId": "Dataset Id"
+    }
+  }
+}

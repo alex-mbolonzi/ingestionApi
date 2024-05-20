@@ -1,0 +1,24 @@
+{
+  "ingestionApiApp": {
+    "datasetTherapy": {
+      "home": {
+        "title": "DatasetTherapies",
+        "createLabel": "Créer un nouveau Dataset Therapy",
+        "createOrEditLabel": "Créer ou éditer un Dataset Therapy",
+        "notFound": "Aucun Dataset Therapy trouvé"
+      },
+      "created": "Un nouveau Dataset Therapy a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Dataset Therapy avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Dataset Therapy avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Dataset Therapy {{ id }} ?"
+      },
+      "detail": {
+        "title": "Dataset Therapy"
+      },
+      "datasetTheraphyId": "Dataset Theraphy Id",
+      "therapy": "Therapy",
+      "datasetId": "Dataset Id"
+    }
+  }
+}

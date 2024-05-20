@@ -1,0 +1,25 @@
+{
+  "ingestionApiApp": {
+    "emailTemplate": {
+      "home": {
+        "title": "EmailTemplates",
+        "createLabel": "Créer un nouveau Email Template",
+        "createOrEditLabel": "Créer ou éditer un Email Template",
+        "notFound": "Aucun Email Template trouvé"
+      },
+      "created": "Un nouveau Email Template a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Email Template avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Email Template avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Email Template {{ id }} ?"
+      },
+      "detail": {
+        "title": "Email Template"
+      },
+      "templateId": "Template Id",
+      "templateCode": "Template Code",
+      "subject": "Subject",
+      "body": "Body"
+    }
+  }
+}

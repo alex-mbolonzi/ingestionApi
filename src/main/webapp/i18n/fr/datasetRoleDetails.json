@@ -1,0 +1,27 @@
+{
+  "ingestionApiApp": {
+    "datasetRoleDetails": {
+      "home": {
+        "title": "DatasetRoleDetails",
+        "createLabel": "Créer un nouveau Dataset Role Details",
+        "createOrEditLabel": "Créer ou éditer un Dataset Role Details",
+        "notFound": "Aucun Dataset Role Details trouvé"
+      },
+      "created": "Un nouveau Dataset Role Details a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Dataset Role Details avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Dataset Role Details avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Dataset Role Details {{ id }} ?"
+      },
+      "detail": {
+        "title": "Dataset Role Details"
+      },
+      "datasetRoleDetailsId": "Dataset Role Details Id",
+      "role": "Role",
+      "email": "Email",
+      "mudid": "Mudid",
+      "name": "Name",
+      "datasetId": "Dataset Id"
+    }
+  }
+}

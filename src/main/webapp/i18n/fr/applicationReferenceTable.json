@@ -1,0 +1,30 @@
+{
+  "ingestionApiApp": {
+    "applicationReferenceTable": {
+      "home": {
+        "title": "ApplicationReferenceTables",
+        "createLabel": "Créer un nouveau Application Reference Table",
+        "createOrEditLabel": "Créer ou éditer un Application Reference Table",
+        "notFound": "Aucun Application Reference Table trouvé"
+      },
+      "created": "Un nouveau Application Reference Table a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Application Reference Table avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Application Reference Table avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Application Reference Table {{ id }} ?"
+      },
+      "detail": {
+        "title": "Application Reference Table"
+      },
+      "referenceId": "Reference Id",
+      "referenceData": "Reference Data",
+      "referenceDataType": "Reference Data Type",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "modifiedBy": "Modified By",
+      "modifiedDate": "Modified Date",
+      "referenceOrder": "Reference Order",
+      "referenceGroupType": "Reference Group Type"
+    }
+  }
+}

@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="requestStatusDetails">
+      <h2>
+        <span jhiTranslate="ingestionApiApp.requestStatusDetails.detail.title">Request Status Details</span> {{ requestStatusDetails.id }}
+      </h2>
+      <hr />
+      <jhi-alert-error></jhi-alert-error>
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ingestionApiApp.requestStatusDetails.requestStatusId">Request Status Id</span></dt>
+        <dd>
+          <span>{{ requestStatusDetails.requestStatusId }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.requestStatusDetails.decisionByName">Decision By Name</span></dt>
+        <dd>
+          <span>{{ requestStatusDetails.decisionByName }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.requestStatusDetails.decisionByMudid">Decision By Mudid</span></dt>
+        <dd>
+          <span>{{ requestStatusDetails.decisionByMudid }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.requestStatusDetails.decisionByEmail">Decision By Email</span></dt>
+        <dd>
+          <span>{{ requestStatusDetails.decisionByEmail }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.requestStatusDetails.decisionDate">Decision Date</span></dt>
+        <dd>
+          <span>{{ requestStatusDetails.decisionDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.requestStatusDetails.decisionComments">Decision Comments</span></dt>
+        <dd>
+          <span>{{ requestStatusDetails.decisionComments }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.requestStatusDetails.rejectionReason">Rejection Reason</span></dt>
+        <dd>
+          <span>{{ requestStatusDetails.rejectionReason }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.requestStatusDetails.activeFlag">Active Flag</span></dt>
+        <dd>
+          <span>{{ requestStatusDetails.activeFlag }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.requestStatusDetails.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ requestStatusDetails.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.requestStatusDetails.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ requestStatusDetails.createdDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.requestStatusDetails.modifiedBy">Modified By</span></dt>
+        <dd>
+          <span>{{ requestStatusDetails.modifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.requestStatusDetails.modifiedDate">Modified Date</span></dt>
+        <dd>
+          <span>{{ requestStatusDetails.modifiedDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.requestStatusDetails.ingestionRequestId">Ingestion Request Id</span></dt>
+        <dd>
+          <div *ngIf="requestStatusDetails.ingestionRequestIdId">
+            <a [routerLink]="['/ingestion-request-details', requestStatusDetails.ingestionRequestIdId, 'view']">{{
+              requestStatusDetails.ingestionRequestIdId
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.requestStatusDetails.statusId">Status Id</span></dt>
+        <dd>
+          <div *ngIf="requestStatusDetails.statusIdId">
+            <a [routerLink]="['/status', requestStatusDetails.statusIdId, 'view']">{{ requestStatusDetails.statusIdStatusIdRef }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info">
+        <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/request-status-details', requestStatusDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

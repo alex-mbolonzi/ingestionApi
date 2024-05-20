@@ -1,0 +1,35 @@
+{
+  "name": "DatasetIndication",
+  "fields": [
+    {
+      "fieldName": "datasetIndicationId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "indication",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": 255
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "datasetDetails",
+      "otherEntityRelationshipName": "datasetIndication",
+      "relationshipValidateRules": "required",
+      "relationshipName": "datasetId",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20240520092158",
+  "entityTableName": "dataset_indication",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "applications": "*"
+}

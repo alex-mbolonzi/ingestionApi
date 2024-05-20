@@ -1,0 +1,105 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="technicalDetails">
+      <h2><span jhiTranslate="ingestionApiApp.technicalDetails.detail.title">Technical Details</span> {{ technicalDetails.id }}</h2>
+      <hr />
+      <jhi-alert-error></jhi-alert-error>
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.technicalRequestId">Technical Request Id</span></dt>
+        <dd>
+          <span>{{ technicalDetails.technicalRequestId }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.dataLocationPath">Data Location Path</span></dt>
+        <dd>
+          <span>{{ technicalDetails.dataLocationPath }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.dataRefreshFrequency">Data Refresh Frequency</span></dt>
+        <dd>
+          <span>{{ technicalDetails.dataRefreshFrequency }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.targetIngestionStartDate">Target Ingestion Start Date</span></dt>
+        <dd>
+          <span>{{ technicalDetails.targetIngestionStartDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.targetIngestionEndDate">Target Ingestion End Date</span></dt>
+        <dd>
+          <span>{{ technicalDetails.targetIngestionEndDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.targetPath">Target Path</span></dt>
+        <dd>
+          <span>{{ technicalDetails.targetPath }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.datasetTypeIngestionRef">Dataset Type Ingestion Ref</span></dt>
+        <dd>
+          <span>{{ technicalDetails.datasetTypeIngestionRef }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.guestUsersEmail">Guest Users Email</span></dt>
+        <dd>
+          <span>{{ technicalDetails.guestUsersEmail }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.whitelistIpAddresses">Whitelist Ip Addresses</span></dt>
+        <dd>
+          <span>{{ technicalDetails.whitelistIpAddresses }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.externalStagingContainerName">External Staging Container Name</span></dt>
+        <dd>
+          <span>{{ technicalDetails.externalStagingContainerName }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.externalDataSourceLocation">External Data Source Location</span></dt>
+        <dd>
+          <span>{{ technicalDetails.externalDataSourceLocation }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.gskAccessSourceLocationRef">Gsk Access Source Location Ref</span></dt>
+        <dd>
+          <span>{{ technicalDetails.gskAccessSourceLocationRef }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.externalSourceSecretKeyName">External Source Secret Key Name</span></dt>
+        <dd>
+          <span>{{ technicalDetails.externalSourceSecretKeyName }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.domainRequestId">Domain Request Id</span></dt>
+        <dd>
+          <span>{{ technicalDetails.domainRequestId }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="ingestionApiApp.technicalDetails.existingDataLocationIdentified">Existing Data Location Identified</span>
+        </dt>
+        <dd>
+          <span>{{ technicalDetails.existingDataLocationIdentified }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ technicalDetails.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ technicalDetails.createdDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.modifiedBy">Modified By</span></dt>
+        <dd>
+          <span>{{ technicalDetails.modifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.modifiedDate">Modified Date</span></dt>
+        <dd>
+          <span>{{ technicalDetails.modifiedDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.technicalDetails.ingestionRequestId">Ingestion Request Id</span></dt>
+        <dd>
+          <div *ngIf="technicalDetails.ingestionRequestIdId">
+            <a [routerLink]="['/ingestion-request-details', technicalDetails.ingestionRequestIdId, 'view']">{{
+              technicalDetails.ingestionRequestIdId
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info">
+        <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/technical-details', technicalDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

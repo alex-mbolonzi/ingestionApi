@@ -1,0 +1,117 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="datasetDetails">
+      <h2><span jhiTranslate="ingestionApiApp.datasetDetails.detail.title">Dataset Details</span> {{ datasetDetails.id }}</h2>
+      <hr />
+      <jhi-alert-error></jhi-alert-error>
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.datasetId">Dataset Id</span></dt>
+        <dd>
+          <span>{{ datasetDetails.datasetId }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.datasetName">Dataset Name</span></dt>
+        <dd>
+          <span>{{ datasetDetails.datasetName }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.datasetOriginSource">Dataset Origin Source</span></dt>
+        <dd>
+          <span>{{ datasetDetails.datasetOriginSource }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.currentDataLocationRef">Current Data Location Ref</span></dt>
+        <dd>
+          <span>{{ datasetDetails.currentDataLocationRef }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.meteorSpaceDominoUsageFlag">Meteor Space Domino Usage Flag</span></dt>
+        <dd>
+          <span>{{ datasetDetails.meteorSpaceDominoUsageFlag }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.ihdFlag">Ihd Flag</span></dt>
+        <dd>
+          <span>{{ datasetDetails.ihdFlag }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.datasetRequiredForRef">Dataset Required For Ref</span></dt>
+        <dd>
+          <span>{{ datasetDetails.datasetRequiredForRef }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.estimatedDataVolumeRef">Estimated Data Volume Ref</span></dt>
+        <dd>
+          <span>{{ datasetDetails.estimatedDataVolumeRef }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.analysisInitDt">Analysis Init Dt</span></dt>
+        <dd>
+          <span>{{ datasetDetails.analysisInitDt }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.analysisEndDt">Analysis End Dt</span></dt>
+        <dd>
+          <span>{{ datasetDetails.analysisEndDt }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.dtaContractCompleteFlag">Dta Contract Complete Flag</span></dt>
+        <dd>
+          <span>{{ datasetDetails.dtaContractCompleteFlag }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.dtaExpectedCompletionDate">Dta Expected Completion Date</span></dt>
+        <dd>
+          <span>{{ datasetDetails.dtaExpectedCompletionDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.datasetTypeRef">Dataset Type Ref</span></dt>
+        <dd>
+          <span>{{ datasetDetails.datasetTypeRef }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="ingestionApiApp.datasetDetails.informationClassificationTypeRef">Information Classification Type Ref</span>
+        </dt>
+        <dd>
+          <span>{{ datasetDetails.informationClassificationTypeRef }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.piiTypeRef">Pii Type Ref</span></dt>
+        <dd>
+          <span>{{ datasetDetails.piiTypeRef }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.retentionRules">Retention Rules</span></dt>
+        <dd>
+          <span>{{ datasetDetails.retentionRules }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.retentionRulesContractDate">Retention Rules Contract Date</span></dt>
+        <dd>
+          <span>{{ datasetDetails.retentionRulesContractDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.contractPartner">Contract Partner</span></dt>
+        <dd>
+          <span>{{ datasetDetails.contractPartner }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ datasetDetails.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ datasetDetails.createdDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.modifiedBy">Modified By</span></dt>
+        <dd>
+          <span>{{ datasetDetails.modifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.modifiedDate">Modified Date</span></dt>
+        <dd>
+          <span>{{ datasetDetails.modifiedDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.datasetDetails.ingestionRequestId">Ingestion Request Id</span></dt>
+        <dd>
+          <div *ngIf="datasetDetails.ingestionRequestIdId">
+            <a [routerLink]="['/ingestion-request-details', datasetDetails.ingestionRequestIdId, 'view']">{{
+              datasetDetails.ingestionRequestIdId
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info">
+        <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/dataset-details', datasetDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

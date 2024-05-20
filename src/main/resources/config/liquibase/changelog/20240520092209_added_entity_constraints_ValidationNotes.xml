@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity ValidationNotes.
+    -->
+    <changeSet id="20240520092209-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="ingestion_request_id_id"
+                                 baseTableName="validation_notes"
+                                 constraintName="fk_validation_notes_ingestion_request_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ingestion_request_details"/>
+
+    </changeSet>
+</databaseChangeLog>

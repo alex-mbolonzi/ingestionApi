@@ -1,0 +1,38 @@
+{
+  "ingestionApiApp": {
+    "ingestionRequestDetails": {
+      "home": {
+        "title": "IngestionRequestDetails",
+        "createLabel": "Créer un nouveau Ingestion Request Details",
+        "createOrEditLabel": "Créer ou éditer un Ingestion Request Details",
+        "notFound": "Aucun Ingestion Request Details trouvé"
+      },
+      "created": "Un nouveau Ingestion Request Details a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ingestion Request Details avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ingestion Request Details avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ingestion Request Details {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ingestion Request Details"
+      },
+      "ingestionRequestId": "Ingestion Request Id",
+      "requesterName": "Requester Name",
+      "requesterMudid": "Requester Mudid",
+      "requesterEmail": "Requester Email",
+      "requestRationaleReason": "Request Rationale Reason",
+      "requestedByName": "Requested By Name",
+      "requestedByMudid": "Requested By Mudid",
+      "requestedByEmail": "Requested By Email",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "modifiedBy": "Modified By",
+      "modifiedDate": "Modified Date",
+      "modifiedReason": "Modified Reason",
+      "datasetDetails": "Dataset Details",
+      "technicalDetails": "Technical Details",
+      "requestStatusDetails": "Request Status Details",
+      "validationNotes": "Validation Notes"
+    }
+  }
+}

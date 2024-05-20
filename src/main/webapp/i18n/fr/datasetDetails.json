@@ -1,0 +1,51 @@
+{
+  "ingestionApiApp": {
+    "datasetDetails": {
+      "home": {
+        "title": "DatasetDetails",
+        "createLabel": "Créer un nouveau Dataset Details",
+        "createOrEditLabel": "Créer ou éditer un Dataset Details",
+        "notFound": "Aucun Dataset Details trouvé"
+      },
+      "created": "Un nouveau Dataset Details a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Dataset Details avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Dataset Details avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Dataset Details {{ id }} ?"
+      },
+      "detail": {
+        "title": "Dataset Details"
+      },
+      "datasetId": "Dataset Id",
+      "datasetName": "Dataset Name",
+      "datasetOriginSource": "Dataset Origin Source",
+      "currentDataLocationRef": "Current Data Location Ref",
+      "meteorSpaceDominoUsageFlag": "Meteor Space Domino Usage Flag",
+      "ihdFlag": "Ihd Flag",
+      "datasetRequiredForRef": "Dataset Required For Ref",
+      "estimatedDataVolumeRef": "Estimated Data Volume Ref",
+      "analysisInitDt": "Analysis Init Dt",
+      "analysisEndDt": "Analysis End Dt",
+      "dtaContractCompleteFlag": "Dta Contract Complete Flag",
+      "dtaExpectedCompletionDate": "Dta Expected Completion Date",
+      "datasetTypeRef": "Dataset Type Ref",
+      "informationClassificationTypeRef": "Information Classification Type Ref",
+      "piiTypeRef": "Pii Type Ref",
+      "retentionRules": "Retention Rules",
+      "retentionRulesContractDate": "Retention Rules Contract Date",
+      "contractPartner": "Contract Partner",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "modifiedBy": "Modified By",
+      "modifiedDate": "Modified Date",
+      "ingestionRequestId": "Ingestion Request Id",
+      "datasetDataCategory": "Dataset Data Category",
+      "datasetIndication": "Dataset Indication",
+      "datasetRoleDetails": "Dataset Role Details",
+      "datasetStudy": "Dataset Study",
+      "datasetTechAndAssay": "Dataset Tech And Assay",
+      "datasetTherapy": "Dataset Therapy",
+      "datasetUserUsageRestriction": "Dataset User Usage Restriction"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="applicationReferenceTable">
+      <h2>
+        <span jhiTranslate="ingestionApiApp.applicationReferenceTable.detail.title">Application Reference Table</span>
+        {{ applicationReferenceTable.id }}
+      </h2>
+      <hr />
+      <jhi-alert-error></jhi-alert-error>
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ingestionApiApp.applicationReferenceTable.referenceId">Reference Id</span></dt>
+        <dd>
+          <span>{{ applicationReferenceTable.referenceId }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.applicationReferenceTable.referenceData">Reference Data</span></dt>
+        <dd>
+          <span>{{ applicationReferenceTable.referenceData }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.applicationReferenceTable.referenceDataType">Reference Data Type</span></dt>
+        <dd>
+          <span>{{ applicationReferenceTable.referenceDataType }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.applicationReferenceTable.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ applicationReferenceTable.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.applicationReferenceTable.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ applicationReferenceTable.createdDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.applicationReferenceTable.modifiedBy">Modified By</span></dt>
+        <dd>
+          <span>{{ applicationReferenceTable.modifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.applicationReferenceTable.modifiedDate">Modified Date</span></dt>
+        <dd>
+          <span>{{ applicationReferenceTable.modifiedDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.applicationReferenceTable.referenceOrder">Reference Order</span></dt>
+        <dd>
+          <span>{{ applicationReferenceTable.referenceOrder }}</span>
+        </dd>
+        <dt><span jhiTranslate="ingestionApiApp.applicationReferenceTable.referenceGroupType">Reference Group Type</span></dt>
+        <dd>
+          <span>{{ applicationReferenceTable.referenceGroupType }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info">
+        <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/application-reference-table', applicationReferenceTable.id, 'edit']" class="btn btn-primary">
+        <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
