@@ -5,7 +5,7 @@ application {
     applicationType monolith
     packageName dev.ingestion
     authenticationType jwt
-    prodDatabaseType postgres
+    prodDatabaseType postgresql
   }
   entities *
 }
