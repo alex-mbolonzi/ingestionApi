@@ -1,4 +1,4 @@
-entity ApplicationReferenceTable(application_reference_table) {
+entity ApplicationReference(application_reference) {
     referenceId Long required,
     referenceData String required maxlength(255),
     referenceDataType String required maxlength(255),
